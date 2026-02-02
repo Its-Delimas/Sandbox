@@ -1,0 +1,24 @@
+
+🎯 ASSIGNMENT 1: Build a Task Queue Manager
+Create a task queue system using closures that:
+
+Accepts tasks (functions) to be executed
+Has a configurable concurrency limit (max tasks running simultaneously)
+Tracks completed, pending, and failed tasks
+Provides methods: addTask(), pause(), resume(), getStats()
+All internal state should be private
+
+requirements:=>Javascript
+const queue = createTaskQueue({ concurrency: 2 });
+
+queue.addTask(async () => {
+  await fetch('https://api.example.com/data');
+});
+
+queue.addTask(async () => {
+  console.log('Task 2');
+});
+
+queue.getStats(); // { pending: 2, running: 0, completed: 0, failed: 0 }
+queue.pause();
+queue.resume();
