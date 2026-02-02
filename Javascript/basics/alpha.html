@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alpha</title>
+  </head>
+  <body>
+    <!--Changing html contents using innerhtml or innertext-->
+    <h1>This is my first Javascript</h1>
+    <button type="button" onclick="displayTime()">
+      Click me to display time...
+    </button>
+    <p id="demo"></p>
+    <!--print screen-->
+    <button id="print">Print Screen</button>
+    <!--the Day of the week-->
+    <button type="button">show Day</button>
+    <p id="day"></p>
+    <script>
+      let day;
+      let date = new Date().getDay();
+
+      switch (date) {
+        case 0:
+          day = "Sunday";
+          break;
+        case 1:
+          day = "Monday";
+          break;
+        case 2:
+          day = "Tuesday";
+          break;
+        case 3:
+          day = "Wednesday";
+          break;
+        case 4:
+          day = "Thursday";
+          break;
+        case 5:
+          day = "Friday";
+          break;
+        case 6:
+          day = "Saturday";
+      }
+
+      document.getElementById("day").innerHTML = "Today is " + day;
+    </script>
+    <!--showing and hiding text-->
+    <p id="p1">Name's Spencer</p>
+    <input
+      type="button"
+      value="Hide text"
+      onclick="document.getElementById('p1').style.visibility = 'hidden'"
+    />
+    <input
+      type="button"
+      value="Show text"
+      onclick="document.getElementById('p1').style.visibility = 'visible'"
+    />
+    <script src="./alpha.js"></script>
+  </body>
+</html>
