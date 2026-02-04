@@ -1,63 +1,64 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>alpha</title>
-  </head>
+  <style>
+    #container {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      background: yellow;
+    }
+    #animate {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      background-color: red;
+    }
+  </style>
   <body>
-    <!--Changing html contents using innerhtml or innertext-->
-    <h1>This is my first Javascript</h1>
-    <button type="button" onclick="displayTime()">
-      Click me to display time...
-    </button>
-    <p id="demo"></p>
-    <!--print screen-->
-    <button id="print">Print Screen</button>
-    <!--the Day of the week-->
-    <button type="button">show Day</button>
-    <p id="day"></p>
+    <p><button onclick="myMove()">Click Me</button></p>
+
+    <div id="container">
+      <div id="animate"></div>
+    </div>
+
+    <div
+      id="box"
+      style="width: 200px; height: 100px; padding: 16px; border: 1px solid #000"
+    >
+      Move mouse over this box
+    </div>
+
     <script>
-      let day;
-      let date = new Date().getDay();
+      const box = document.getElementById("box");
 
-      switch (date) {
-        case 0:
-          day = "Sunday";
-          break;
-        case 1:
-          day = "Monday";
-          break;
-        case 2:
-          day = "Tuesday";
-          break;
-        case 3:
-          day = "Wednesday";
-          break;
-        case 4:
-          day = "Thursday";
-          break;
-        case 5:
-          day = "Friday";
-          break;
-        case 6:
-          day = "Saturday";
-      }
+      // Let box listen for mouseover
+      box.addEventListener("mouseover", function () {
+        box.innerHTML = "Mouse is over me!";
+      });
 
-      document.getElementById("day").innerHTML = "Today is " + day;
+      // Let box listen for mouseout
+      box.addEventListener("mouseout", function () {
+        box.innerHTML = "Move is out!";
+      });
     </script>
-    <!--showing and hiding text-->
-    <p id="p1">Name's Spencer</p>
-    <input
-      type="button"
-      value="Hide text"
-      onclick="document.getElementById('p1').style.visibility = 'hidden'"
-    />
-    <input
-      type="button"
-      value="Show text"
-      onclick="document.getElementById('p1').style.visibility = 'visible'"
-    />
-    <script src="./alpha.js"></script>
+
+    <script>
+      function myMove() {
+        let id = null;
+        const elem = document.getElementById("animate");
+        let pos = 0;
+        clearInterval(id);
+        id = setInterval(frame, 5);
+        function frame() {
+          if (pos == 350) {
+            clearInterval(id);
+          } else {
+            pos++;
+            elem.style.top = pos + "px";
+            elem.style.left = pos + "px";
+          }
+        }
+      }
+    </script>
   </body>
 </html>

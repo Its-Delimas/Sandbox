@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">DEKUT</div>
+      <nav class="nav-bar">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Course</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
+        <div class="search">
+          <input type="search" class="search" />
+          <button type="submit">Search</button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="form-container">
+        <h1>User Registration</h1>
+        <form action="process.php" method="post" id="reg-form">
+          <!---->
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input
+              type="text"
+              name="fullname"
+              id="fullname"
+              placeholder="Enter Your Full Name"
+              required
+            />
+            <span class="error" id="fullnameError"></span>
+          </div>
+          <!---->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="johndoe@gmailcom"
+              required
+            />
+            <span class="error" id="emailError"></span>
+          </div>
+          <!---->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              minlength="8"
+              placeholder="Min 8 characters"
+              required
+            />
+            <span class="error" id="passwordError"></span>
+          </div>
+          <!--Confirm Password-->
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              required
+            />
+            <span class="error" id="confirmPasswordError"></span>
+          </div>
+          <!--handling date-->
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required />
+            <span class="error" id="dobError"></span>
+          </div>
+          <!--drop down menus-->
+          <div class="form-group">
+            <label for="role">Select Role</label>
+            <select id="role" name="role" required>
+              <option value="">-- Select A role --</option>
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="admin">administrator</option>
+            </select>
+            <span class="error" id="roleError"></span>
+          </div>
+          <!---->
+          <div class="form-group">
+            <label for="">Gender</label>
+            <!--Radio Buttons~only one can be selected-->
+            <div class="radio-group">
+              <input
+                type="radio"
+                name="gender"
+                id="male"
+                value="male"
+                required
+              />
+              <label for="male">Male</label>
+              <input type="radio" name="gender" id="female" value="female" />
+              <label for="female">female</label>
+              <input type="radio" id="other" name="gender" value="other" />
+              <label for="other">Other</label>
+            </div>
+            <span class="error" id="genderError"></span>
+          </div>
+          <!--CheckBox~Independent true/false togglwe-->
+          <div class="form-section">
+            <label>
+              <input type="checkbox" id="terms" name="terms" required />
+              I agree to the <a href="#">Terms and Conditions</a>
+            </label>
+            <span class="error" id="termsError"></span>
+          </div>
+
+          <button type="submit" id="submitBtn">Register</button>
+
+          <!--message box shown after php processes the form-->
+          <div class="message" id="message"></div>
+        </form>
+      </section>
+    </main>
+    <footer>&copy property of Spencer, 2026</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
